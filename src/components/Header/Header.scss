@@ -1,0 +1,14 @@
+@import '../../utils';
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 13px 16px;
+
+  &__nav {
+    display: flex;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../utils';
+
+.UserList {
+  padding: 140px 16px;
+
+  background-color: $colorBackground;
+
+  &__subtitle {
+    margin-bottom: 50px;
+  }
+}
+
+.subtitle {
+  background-color: inherit;
+  @extend %h1;
+}

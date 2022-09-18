@@ -1,0 +1,22 @@
+@import '../../utils';
+
+.HeroSection {
+  display: block;
+  padding: 40px 16px 71px;
+
+  background: rgba(0, 0, 0, 0.5) url(../../images/bgHeroSection.jpeg);
+  background-size: cover;
+  background-blend-mode: darken;
+
+  &__title {
+    margin-bottom: 21px;
+
+    @extend %h1;
+    color: #fff;
+  }
+
+  &__description {
+    margin-bottom: 32px;
+    color: #fff;
+  }
+}
