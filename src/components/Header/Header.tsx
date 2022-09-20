@@ -5,19 +5,19 @@ import { Logo } from '../Logo/Logo';
 export const Header:React.FC = () => {
   return (
     <header className="Header" id="header">
-      <Logo />
-      
-      <nav className='Header__nav'>
-        <Button>
-          Users
-        </Button>
+      <div className="HeaderContainer">
+        <Logo />
+        
+        <nav className='Header__nav'>
+          <Button>
+            Users
+          </Button>
 
-        <Button>
-          Sign up
-        </Button>
-      </nav>
-     
-
+          <Button>
+            Sign up
+          </Button>
+        </nav>
+      </div>
     </header>
   )
 }

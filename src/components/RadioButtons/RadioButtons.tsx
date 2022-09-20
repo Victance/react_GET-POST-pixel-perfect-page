@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getPositions } from '../../api/users';
-import { Position } from '../../types/Position';
-import { RadioButtonItem } from '../RadioButton/RadioButtonItem';
+import { IPosition } from '../../types/IPosition';
+import { RadioButtonItem } from '../RadioButtonItem/RadioButtonItem';
 import './RadioButtons.scss';
 
-export const RadioButtons:React.FC = () => {
-  const [availablePositions, setPositions] = useState<Position[]>([]);
+type Props = {
+  position_id: number | null;
+  handleChange: (value: number) => void;
+};
+
+export const RadioButtons:React.FC<Props> = ({ position_id, handleChange }) => {
+  const [availablePositions, setPositions] = useState<IPosition[]>([]);
 
   useEffect(() => {
     getPositions().then(data => 
@@ -18,9 +23,12 @@ export const RadioButtons:React.FC = () => {
       <p className='RadioButtons__title'> Select your position</p>
 
       {availablePositions.map(position => 
-        <RadioButtonItem 
+        <RadioButtonItem
           key={position.id} 
-          name={position.name} 
+          name={position.name}
+          value={position.id} 
+          handleChange={handleChange}
+          position_id={position_id}
         />
       )}
     </div>

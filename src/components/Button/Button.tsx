@@ -17,7 +17,7 @@ export const Button:React.FC<Props> = ({ isDisabled, isWider, clickHandler, chil
         className={classNames('Button', {
           'Button--wider' : isWider,
           'Button--disabled' : isDisabled,
-        })} 
+        })}
       >
           {children}
       </button>

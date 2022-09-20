@@ -1,12 +1,27 @@
 @import '../../utils';
 
 .UserList {
-  padding: 140px 16px;
-
   background-color: $colorBackground;
 
   &__subtitle {
     margin-bottom: 50px;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-grow: 1;
+
+    margin-bottom: 50px;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 29px;
+    }
   }
 }
 

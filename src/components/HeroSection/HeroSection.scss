@@ -1,12 +1,36 @@
 @import '../../utils';
 
 .HeroSection {
-  display: block;
-  padding: 40px 16px 71px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background: rgba(0, 0, 0, 0.5) url(../../images/bgHeroSection.jpeg);
-  background-size: cover;
-  background-blend-mode: darken;
+  height: 500px;
+  background-size: 100% 500px;
+
+  background-image: url(../../images/bgHeroSection360.jpg);
+
+  @include onTablet {
+    background-image: url(../../images/bgHeroSection768.jpg);
+  }
+
+  @include onDesktop {
+    height: 650px;
+    background-size: 100% 650px;
+    background-image: url(../../images/bgHeroSection1024.jpg);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 328px;
+
+    @include onTablet {
+      max-width: 380px;
+    } 
+  }
 
   &__title {
     margin-bottom: 21px;
@@ -18,5 +42,13 @@
   &__description {
     margin-bottom: 32px;
     color: #fff;
+  }
+}
+
+.ButtonContainer {
+  margin-bottom: 30px;
+
+  @include onTablet {
+    margin-bottom: 0;
   }
 }

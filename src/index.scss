@@ -8,6 +8,7 @@ html {
   font-family: 'Nunito', sans-serif;
   @extend %main;
   text-align: center;
+  background-color: $colorBackground;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
 }

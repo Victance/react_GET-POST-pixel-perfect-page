@@ -1,8 +1,8 @@
 import './UserItem.scss';
-import { User } from "../../types/User";
+import { IUser } from "../../types/IUser";
 
 type Props = {
-  user: User;
+  user: IUser;
 };
 
 export const UserItem:React.FC<Props> = ({ user }) => {
@@ -12,10 +12,17 @@ export const UserItem:React.FC<Props> = ({ user }) => {
   ? name.slice(0,32) + '...'
   : name
 
+  const displayedEmail = email.length > 35
+  ? email.slice(0,25) + '...' + email.slice(-10)
+  : email
+
   return (
     <article className='UserItem'>
       <img 
-        src={photo} 
+        src={typeof photo === 'string'
+          ? photo
+          : ''
+        } 
         alt={displayedName}
         className="UserItem__photo"
       />
@@ -25,7 +32,7 @@ export const UserItem:React.FC<Props> = ({ user }) => {
       </p>
 
       <p>{position}</p>
-      <p>{email}</p>
+      <p>{displayedEmail}</p>
       <p>{phone}</p>
     </article>
   )

@@ -29,5 +29,10 @@
   &--disabled {
     color: #fff;
     background-color: #B4B4B4;
+
+    &:hover {
+      color: #fff;
+      background-color: #B4B4B4;
+    }
   }
 }

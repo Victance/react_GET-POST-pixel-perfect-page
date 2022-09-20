@@ -1,27 +1,29 @@
-import { useState } from 'react';
 import './Upload.scss';
 
-export const Upload:React.FC = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+type Props = {
+  photo: File | null;
+  handleChange: (value: File | null) => void;
+};
 
+export const Upload:React.FC<Props> = ({photo, handleChange}) => {
   let displayedName;
 
-  if (selectedFile) {
-    displayedName = selectedFile.name.length > 30
-      ? selectedFile.name.slice(0,15) + '...' + selectedFile.name.slice(-10)
-      : selectedFile.name
+  if (photo) {
+    displayedName = photo.name.length > 30
+      ? photo.name.slice(0,15) + '...' + photo.name.slice(-10)
+      : photo.name
   }
   
 
   return (
-    <div className='Upload ApplyForm__Upload'>
+    <div className='Upload'>
       <input 
         type="file" 
         className='Upload__input'
         id='upload'
         onChange={(e) => {
           if (!e.target.files) {return};
-          setSelectedFile(e.target.files[0])
+          handleChange(e.target.files[0])
         }}
       />
 

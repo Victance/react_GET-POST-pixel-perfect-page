@@ -1,14 +1,30 @@
 @import '../../utils';
 
 .Header {
+  &__nav {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.HeaderContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 13px 16px;
 
-  &__nav {
-    display: flex;
-    gap: 10px;
+  @include onTablet {
+    padding: 13px 32px;
+  }
+
+  @include onDesktop {
+    padding: 13px 60px;
+  }
+
+  @include onDesktopWide {
+    margin: 0 auto;
+    padding: 13px 0;
+    max-width: 1170px;
   }
 }

@@ -1,8 +1,16 @@
 @import '../../utils';
 
-.ApplyForm {
-  padding: 0 16px 100px;
+.NewUser {
   background-color: $colorBackground;
+
+  &__form {
+    margin: 0 auto;
+    max-width: 328px;
+
+    @include onTablet {
+      max-width: 380px;
+    }
+  }
 
   &__field {
     padding: 13px 16px;
@@ -42,4 +50,8 @@
 .subtitle {
   background-color: inherit;
   @extend %h1;
+}
+
+.UploadContainer {
+  margin-bottom: 50px;
 }
