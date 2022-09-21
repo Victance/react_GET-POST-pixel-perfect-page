@@ -3,7 +3,7 @@ export interface IUser {
   name: string,
   email: string,
   phone: string,
-  position: string | number | null,
+  position: string,
   registration_timestamp: number,
-  photo: string | File | null,
+  photo: string,
 }

@@ -18,6 +18,7 @@ export const Button:React.FC<Props> = ({ isDisabled, isWider, clickHandler, chil
           'Button--wider' : isWider,
           'Button--disabled' : isDisabled,
         })}
+        disabled={isDisabled}
       >
           {children}
       </button>

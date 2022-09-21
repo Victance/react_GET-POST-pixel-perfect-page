@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { getPositions } from '../../api/users';
 import { IPosition } from '../../types/IPosition';
-import { RadioButtonItem } from '../RadioButtonItem/RadioButtonItem';
 import './RadioButtons.scss';
 
 type Props = {
-  position_id: number | null;
-  handleChange: (value: number) => void;
+  position_id: string;
+  handleChange: (value: string) => void;
 };
 
 export const RadioButtons:React.FC<Props> = ({ position_id, handleChange }) => {
@@ -23,13 +22,19 @@ export const RadioButtons:React.FC<Props> = ({ position_id, handleChange }) => {
       <p className='RadioButtons__title'> Select your position</p>
 
       {availablePositions.map(position => 
-        <RadioButtonItem
-          key={position.id} 
-          name={position.name}
-          value={position.id} 
-          handleChange={handleChange}
-          position_id={position_id}
-        />
+        <div className='RadioButtons__item' key={position.id}> 
+          <input 
+            type="radio" 
+            name="position"
+            value={position.id}
+            checked={+position_id === position.id}
+            className="RadioButtons__input"
+            onChange={() => handleChange(position.id.toString())}
+          />
+          <label>
+            {position.name}
+          </label>
+    </div>
       )}
     </div>
 )}

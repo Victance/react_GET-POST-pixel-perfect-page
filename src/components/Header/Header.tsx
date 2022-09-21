@@ -1,21 +1,27 @@
 import './Header.scss';
 import { Button } from '../Button/Button';
-import { Logo } from '../Logo/Logo';
+import logo from '../../images/logo.svg';
 
 export const Header:React.FC = () => {
   return (
     <header className="Header" id="header">
       <div className="HeaderContainer">
-        <Logo />
+          <div className="Header__logo">
+            <img src={logo} alt="Logo" />
+          </div> 
         
         <nav className='Header__nav'>
-          <Button>
-            Users
-          </Button>
+          <a href="#UserList">
+            <Button>
+              Users
+            </Button>
+          </a>
 
-          <Button>
-            Sign up
-          </Button>
+          <a href="#NewUser">
+            <Button>
+              Sign up
+            </Button>
+          </a>
         </nav>
       </div>
     </header>

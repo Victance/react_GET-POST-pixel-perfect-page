@@ -7,7 +7,6 @@
 
   height: 500px;
   background-size: 100% 500px;
-
   background-image: url(../../images/bgHeroSection360.jpg);
 
   @include onTablet {
@@ -18,6 +17,10 @@
     height: 650px;
     background-size: 100% 650px;
     background-image: url(../../images/bgHeroSection1024.jpg);
+  }
+
+  @include onDesktopWide {
+    background-image: url(../../images/bgHeroSection1170.jpg);
   }
 
   &__container {

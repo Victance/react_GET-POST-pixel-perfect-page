@@ -9,6 +9,7 @@ html {
   @extend %main;
   text-align: center;
   background-color: $colorBackground;
+  scroll-behavior: smooth;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
 }

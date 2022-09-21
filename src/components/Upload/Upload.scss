@@ -37,3 +37,13 @@
     }
   }
 }
+
+.Error {
+  display: flex;
+  height: 50px;
+
+  &__Message {
+    font-size: 14px;
+    color: #CB3D40;
+  }
+}

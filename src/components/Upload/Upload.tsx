@@ -2,10 +2,14 @@ import './Upload.scss';
 
 type Props = {
   photo: File | null;
-  handleChange: (value: File | null) => void;
+  handleChange: (value: File) => void;
+  hasError: boolean;
+  errorMessage: string;
 };
 
-export const Upload:React.FC<Props> = ({photo, handleChange}) => {
+export const Upload:React.FC<Props> = ({
+  photo, handleChange, hasError, errorMessage, 
+}) => {
   let displayedName;
 
   if (photo) {
@@ -16,27 +20,38 @@ export const Upload:React.FC<Props> = ({photo, handleChange}) => {
   
 
   return (
-    <div className='Upload'>
-      <input 
-        type="file" 
-        className='Upload__input'
-        id='upload'
-        onChange={(e) => {
-          if (!e.target.files) {return};
-          handleChange(e.target.files[0])
-        }}
-      />
+    <>
+      <div className='Upload'>
+        <input 
+          type="file" 
+          className='Upload__input'
+          id='upload'
+          onChange={(e) => {
+            if (!e.target.files) {return};
+            handleChange(e.target.files[0])
+          }}
+        />
 
-      <label 
-        htmlFor="upload"
-        className='Upload__button'
-      >
-        Upload
-      </label>
+        <label 
+          htmlFor="upload"
+          className='Upload__button'
+        >
+          Upload
+        </label>
 
-      <p className='Upload__text'>
-        {displayedName || 'Upload your photo'}
-      </p>
-    </div>
+        <p className='Upload__text'>
+          {displayedName || 'Upload your photo'}
+        </p>
+      </div>
+
+      <div className="Error">
+        {hasError && (
+          <p className='Error__Message'>
+            {errorMessage}
+          </p>
+        )}
+      </div>
+    </>
+    
   )
 }

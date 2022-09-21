@@ -14,9 +14,11 @@ export const HeroSection = () => {
         </p>
 
         <div className="ButtonContainer">
-          <Button>
-            Sign up
-          </Button>
+          <a href="#NewUser">
+            <Button>
+              Sign up
+            </Button>
+          </a>
         </div>
       </div>
     </section>

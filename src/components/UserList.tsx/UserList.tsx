@@ -2,51 +2,49 @@ import { useEffect, useState } from "react"
 import { getUsersPagination } from "../../api/users";
 import { IUser } from "../../types/IUser";
 import { Button } from "../Button/Button"
+import { Loader } from '../Loader/Loader';
 import { UserItem } from "../UserItem/UserItem";
 import './UserList.scss'
 
-export const UserList = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
-  const [count, setCount] = useState(6);
-  const [total_users, setTotalUsers] = useState(0);
+type Props = {
+  count: number;
+  increaseCount: () => void;
+  users: IUser[];
+  total_users: number;
+  isLoaded: boolean;
+}
 
-  useEffect(() => {
-    getUsersPagination(count).then(data => 
-      {
-        setTotalUsers(data.total_users)
-        
-        setUsers(data.users.sort((user1, user2) => (
-        user2.registration_timestamp - user1.registration_timestamp
-        )))
-      }
-    )
-  }, [count])
-
-  const increaseCount = () => {
-    setCount(count => count + 6)
-  };
-
+export const UserList:React.FC<Props> = ({ 
+  count, increaseCount, users, total_users, isLoaded
+}) => {
   return (
-    <section className="UserList">
+    <section className="UserList" id="UserList">
       <h2 className="subtitle UserList__subtitle" >
         Working with GET request
       </h2>
 
-      <div className="UserList__container">
-        {users.map(user => (
-          <UserItem key={user.id} user={user} />
-        ))}
-      </div>
-      
+      {isLoaded
+       ? (
+        <>
+          <div className="UserList__container">
+            {users.map(user => (
+              <UserItem key={user.id} user={user} />
+            ))}
+          </div>
+          
 
-      {total_users > count && (
-        <Button
-          isWider={true}
-          clickHandler={increaseCount}
-        >
-          Show more
-        </Button>
-      )}
+          {total_users > count && (
+            <Button
+              isWider={true}
+              clickHandler={increaseCount}
+            >
+              Show more
+            </Button>
+          )}
+        </>
+       ) : (
+        <Loader />
+       )}
     </section>
   )
 }

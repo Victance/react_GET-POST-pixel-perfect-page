@@ -1,6 +1,12 @@
 @import '../../utils';
 
 .Header {
+  background-color: #fff;
+  
+  &__logo {
+    display: flex;
+  }
+
   &__nav {
     display: flex;
     gap: 10px;
