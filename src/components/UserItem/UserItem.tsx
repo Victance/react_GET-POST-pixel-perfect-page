@@ -26,6 +26,7 @@ export const UserItem:React.FC<Props> = ({ user }) => {
         } 
         alt={displayedName}
         className="UserItem__photo"
+        loading="lazy"
       />
 
       <p className='UserItem__name' title={name}>

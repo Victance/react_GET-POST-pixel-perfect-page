@@ -23,7 +23,8 @@ export const RadioButtons:React.FC<Props> = ({ position_id, handleChange }) => {
 
       {availablePositions.map(position => 
         <div className='RadioButtons__item' key={position.id}> 
-          <input 
+          <input
+            id={position.name}
             type="radio" 
             name="position"
             value={position.id}
@@ -31,7 +32,7 @@ export const RadioButtons:React.FC<Props> = ({ position_id, handleChange }) => {
             className="RadioButtons__input"
             onChange={() => handleChange(position.id.toString())}
           />
-          <label>
+          <label htmlFor ={position.name} >
             {position.name}
           </label>
     </div>

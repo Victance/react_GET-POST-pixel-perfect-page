@@ -7,20 +7,20 @@
 
   height: 500px;
   background-size: 100% 500px;
-  background-image: url(../../images/bgHeroSection360.jpg);
+  background-image: url(../../images/bgHeroSection360.png);
 
   @include onTablet {
-    background-image: url(../../images/bgHeroSection768.jpg);
+    background-image: url(../../images/bgHeroSection768.png);
   }
 
   @include onDesktop {
     height: 650px;
     background-size: 100% 650px;
-    background-image: url(../../images/bgHeroSection1024.jpg);
+    background-image: url(../../images/bgHeroSection1024.png);
   }
 
   @include onDesktopWide {
-    background-image: url(../../images/bgHeroSection1170.jpg);
+    background-image: url(../../images/bgHeroSection1170.png);
   }
 
   &__container {
