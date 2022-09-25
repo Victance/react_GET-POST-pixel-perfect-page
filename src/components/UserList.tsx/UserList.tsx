@@ -15,8 +15,6 @@ type Props = {
 export const UserList:React.FC<Props> = React.memo(
   ({increaseCount, users, isLoaded, isButtonVisible
 }) => {
-  console.log('user list rendered');
-  
   return (
     <section className="UserList" id="UserList">
       <h2 className="subtitle UserList__subtitle" >
