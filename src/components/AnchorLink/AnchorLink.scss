@@ -1,14 +1,18 @@
 @import '../../utils';
 
-.Button {
+.AnchorLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   width: 100px;
   height: 34px;
 
   border-radius: 80px;
-  border-style: none;
   background-color: $colorPrimary;
 
   @extend %main;
+  text-decoration: none;
   transition: background-color 0.3s;
 
   &:hover {
@@ -19,20 +23,5 @@
   &:active {
     color: #fff;
     background-color: #B4B4B4;
-  }
-
-  &--width120px {
-    width: 120px;
-  }
-
-  &--disabled {
-    color: #fff;
-    background-color: #B4B4B4;
-
-    &:hover {
-      color: #fff;
-      background-color: #B4B4B4;
-      cursor: default;
-    }
   }
 }

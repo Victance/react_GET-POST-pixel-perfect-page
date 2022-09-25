@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getPositions } from '../../api/users';
+import { getPositions } from '../../api';
 import { IPosition } from '../../types/IPosition';
 import './RadioButtons.scss';
 
@@ -32,7 +32,7 @@ export const RadioButtons:React.FC<Props> = ({ position_id, handleChange }) => {
             className="RadioButtons__input"
             onChange={() => handleChange(position.id.toString())}
           />
-          <label htmlFor ={position.name} >
+          <label htmlFor={position.name} >
             {position.name}
           </label>
     </div>

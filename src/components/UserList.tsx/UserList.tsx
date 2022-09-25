@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-import { getUsersPagination } from "../../api/users";
+import React from "react";
 import { IUser } from "../../types/IUser";
 import { Button } from "../Button/Button"
 import { Loader } from '../Loader/Loader';
@@ -7,16 +6,17 @@ import { UserItem } from "../UserItem/UserItem";
 import './UserList.scss'
 
 type Props = {
-  count: number;
   increaseCount: () => void;
   users: IUser[];
-  total_users: number;
   isLoaded: boolean;
+  isButtonVisible: boolean;
 }
 
-export const UserList:React.FC<Props> = ({ 
-  count, increaseCount, users, total_users, isLoaded
+export const UserList:React.FC<Props> = React.memo(
+  ({increaseCount, users, isLoaded, isButtonVisible
 }) => {
+  console.log('user list rendered');
+  
   return (
     <section className="UserList" id="UserList">
       <h2 className="subtitle UserList__subtitle" >
@@ -33,18 +33,21 @@ export const UserList:React.FC<Props> = ({
           </div>
           
 
-          {total_users > count && (
-            <Button
-              isWider={true}
-              clickHandler={increaseCount}
-            >
-              Show more
-            </Button>
+          {isButtonVisible && (
+            <div className="ButtonContainer">
+              <Button
+                width120px={true}
+                clickHandler={increaseCount}
+              >
+                Show more
+              </Button>
+            </div>
+
           )}
         </>
        ) : (
         <Loader />
        )}
     </section>
-  )
-}
+  )}
+)

@@ -2,14 +2,15 @@
 
 .UserList {
   background-color: $colorBackground;
-
+  display: flex;
+  flex-direction: column;
+  
   &__subtitle {
     margin-bottom: 50px;
   }
 
   &__container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     flex-grow: 1;

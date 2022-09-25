@@ -1,8 +1,9 @@
 import './Header.scss';
-import { Button } from '../Button/Button';
 import logo from '../../images/logo.svg';
+import { AnchorLink } from '../AnchorLink/AnchorLink';
+import React from 'react';
 
-export const Header:React.FC = () => {
+export const Header:React.FC = React.memo(() => {
   return (
     <header className="Header" id="header">
       <div className="HeaderContainer">
@@ -11,19 +12,15 @@ export const Header:React.FC = () => {
           </div> 
         
         <nav className='Header__nav'>
-          <a href="#UserList">
-            <Button>
+            <AnchorLink href={"#UserList"}>
               Users
-            </Button>
-          </a>
+            </AnchorLink>
 
-          <a href="#NewUser">
-            <Button>
+            <AnchorLink href={"#NewUser"}>
               Sign up
-            </Button>
-          </a>
+            </AnchorLink>
         </nav>
       </div>
     </header>
-  )
-}
+  )}
+)

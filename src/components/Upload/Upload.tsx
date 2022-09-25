@@ -18,7 +18,6 @@ export const Upload:React.FC<Props> = ({
       : photo.name
   }
   
-
   return (
     <>
       <div className='Upload'>

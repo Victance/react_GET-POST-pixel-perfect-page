@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import React from 'react';
 import './Input.scss';
 
 type Props = {
@@ -8,10 +9,11 @@ type Props = {
   handleChange: (value: string) => void;
   errorMessage: string;
   hasError: boolean;
+  inputHint?: string;
 };
 
-export const Input:React.FC<Props> = ({ 
-  type, value, placeholder, handleChange, errorMessage, hasError
+export const Input:React.FC<Props> = React.memo(({ 
+  type, value, placeholder, handleChange, errorMessage, hasError, inputHint
 }) => {
 
   return (
@@ -28,22 +30,17 @@ export const Input:React.FC<Props> = ({
       />
 
       <div className="Error">
-        {hasError && (
+        {hasError 
+          ? (
           <p className='Error__Message'>
             {errorMessage}
+          </p>
+        ) : (
+          <p className='InputHint'>
+            {inputHint}
           </p>
         )}
       </div>
     </>
-  )
-}
-
-// onChange={(e) => setUserData(e.target.value)}
-// onBlur={() => {
-//   if(userData.match(pattern)) {
-//     handleChange(userData);
-//     setError(false);
-//   } else {
-//     setError(true)
-//   }
-// }}
+  )}
+)

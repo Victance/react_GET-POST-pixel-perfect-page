@@ -3,18 +3,17 @@ import { NewUser } from './components/NewUser/NewUser';
 import { Header } from './components/Header/Header';
 import { HeroSection } from './components/HeroSection/HeroSection';
 import { UserList } from './components/UserList.tsx/UserList';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IUser } from './types/IUser';
-import { getUsersPagination } from './api/users';
+import { getUsersPagination } from './api';
 
 function App() {
   const [count, setCount] = useState(6);
   const [users, setUsers] = useState<IUser[]>([]);
   const [total_users, setTotalUsers] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
-  
 
-  const displayUsers = (count: number) => {
+  const displayUsers = useCallback((count: number) => {
     getUsersPagination(count).then(data => 
       {
         setTotalUsers(data.total_users)
@@ -24,15 +23,19 @@ function App() {
         )))
       }
     ).finally(() => setLoaded(true));
-  }
+  }, [])
 
   useEffect(() => {
     displayUsers(count);
-  }, [count])
+  }, [count, displayUsers])
 
-  const increaseCount = () => {
+  const increaseCount = useCallback(() => {
     setCount(count => count + 6)
-  };
+  }, []);
+  
+  const isButtonVisible = total_users > count
+
+  console.log('app rendred');
   
   return (
     <>
@@ -46,11 +49,10 @@ function App() {
         <div className="ContentContainer">
           <div className="UserListContainer">
             <UserList 
-              count={count} 
               increaseCount={increaseCount}
               users={users}
-              total_users={total_users}
               isLoaded={isLoaded}
+              isButtonVisible={isButtonVisible}
             />
           </div>
           

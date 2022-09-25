@@ -20,7 +20,7 @@ export const UserItem:React.FC<Props> = ({ user }) => {
   return (
     <article className='UserItem'>
       <img 
-        src={typeof photo === 'string'
+        src={(photo.slice(-4).toLowerCase().includes('jpg') || photo.slice(-4).toLowerCase().includes('jpeg'))
           ? photo
           : dummyPhoto
         } 

@@ -1,6 +1,6 @@
-import { IPositionResponse } from "../types/IPositionResponse";
-import { IToken } from "../types/IToken";
-import { IUsersPagination } from "../types/IUsersPagination";
+import { IPositionResponse } from "./types/IPositionResponse";
+import { IToken } from "./types/IToken";
+import { IUsersPagination } from "./types/IUsersPagination";
 
 const BASE_URL = 'https://frontend-test-assignment-api.abz.agency/api/v1';
 
