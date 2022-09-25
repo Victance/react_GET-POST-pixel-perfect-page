@@ -33,10 +33,8 @@ function App() {
     setCount(count => count + 6)
   }, []);
   
-  const isButtonVisible = total_users > count
+  const isButtonVisible = total_users > count;
 
-  console.log('app rendred');
-  
   return (
     <>
       <Header />

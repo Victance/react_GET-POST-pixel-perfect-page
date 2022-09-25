@@ -15,7 +15,6 @@ type Props = {
 export const Input:React.FC<Props> = React.memo(({ 
   type, value, placeholder, handleChange, errorMessage, hasError, inputHint
 }) => {
-
   return (
     <>
       <input 
